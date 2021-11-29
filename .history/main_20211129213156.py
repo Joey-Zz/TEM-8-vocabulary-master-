@@ -38,7 +38,6 @@ for filename in filenames:
     print('len_all_words is :', len(all_words))
 
 
-
 # 读取txt文件里的单词
 def txt():
     with open(filename) as f:
