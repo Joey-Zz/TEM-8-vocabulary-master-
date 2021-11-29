@@ -30,7 +30,7 @@ def pdf():
     words = re.sub('decimal', '', raw_words) 
     words = re.sub('top', '', words)
     words = re.sub('bottom', '', words)
- 
+    # words = re.sub('x', '', words)
     words = re.sub('text', '', words)
 
     words = re.findall('[a-z]+', words) 
@@ -48,30 +48,30 @@ all_words = []
 words = []
 for filename in filenames:
 
- 
+    # 排除多余的文件，防止重复计数
     if '.csv' in filename:
         continue
     if '.py' in filename:
         continue
     print(filename)
 
-    # 读取pdf文件，并将所有英文单词放到列表里
+    # 统计每个pdf文件里面的单词，并且放到一个列表words里面
     if '.pdf' in filename:
         words = pdf()
         print('len_words is :', len(words))
         # print(words)
 
-    # 读取word文件，并将所有英文单词放到列表里
+    # 统计每个Word文件里面的单词，并且放到一个列表words里面
     if '.docx' in filename:
         words = doc()
         print('len_words is :', len(words))
 
-    # 读取txt文件，并将所有英文单词放到列表里
+    # 统计每个TXT文件里面的单词，并且放到一个列表words里面
     if '.txt' in filename:
         words = txt()
         print('len_words is :', len(words))
 
-    # 统计所有文件里的所有单词
+    # 统计所有文件中的英文单词，并且放进列表里
     all_words = all_words + words
     print('len_all_words is :', len(all_words))
 

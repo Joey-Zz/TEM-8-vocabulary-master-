@@ -66,7 +66,7 @@ for filename in filenames:
         words = doc()
         print('len_words is :', len(words))
 
-    # 读取txt文件，并将所有英文单词放到列表里
+    # 统计每个TXT文件里面的单词，并且放到一个列表words里面
     if '.txt' in filename:
         words = txt()
         print('len_words is :', len(words))
