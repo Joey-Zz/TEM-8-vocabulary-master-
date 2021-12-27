@@ -4,6 +4,40 @@ import re
 import pdfplumber 
 import docx
 
+#main
+filenames = os.listdir(os.getcwd())
+all_words = []
+words = []
+for filename in filenames:
+
+ 
+    if '.csv' in filename:
+        continue
+    if '.py' in filename:
+        continue
+    print(filename)
+
+    # 读取pdf文件，并将所有英文单词放到列表里
+    if '.pdf' in filename:
+        words = pdf()
+        print('len_words is :', len(words))
+        # print(words)
+
+    # 读取word文件，并将所有英文单词放到列表里
+    if '.docx' in filename:
+        words = doc()
+        print('len_words is :', len(words))
+
+    # 读取txt文件，并将所有英文单词放到列表里
+    if '.txt' in filename:
+        words = txt()
+        print('len_words is :', len(words))
+        print(words)
+
+    # 统计所有文件里的所有单词
+    all_words = all_words + words
+    print('len_all_words is :', len(all_words))
+
 
 
 # 读取txt文件里的单词
@@ -44,38 +78,4 @@ def pdf():
 
 
 
-
-#main
-filenames = os.listdir(os.getcwd())
-all_words = []
-words = []
-for filename in filenames:
-
- 
-    if '.csv' in filename:
-        continue
-    if '.py' in filename:
-        continue
-    print(filename)
-
-    # 读取pdf文件，并将所有英文单词放到列表里
-    if '.pdf' in filename:
-        words = pdf()
-        print('len_words is :', len(words))
-        # print(words)
-
-    # 读取word文件，并将所有英文单词放到列表里
-    if '.docx' in filename:
-        words = doc()
-        print('len_words is :', len(words))
-
-    # 读取txt文件，并将所有英文单词放到列表里
-    if '.txt' in filename:
-        words = txt()
-        print('len_words is :', len(words))
-        print(words)
-
-    # 统计所有文件里的所有单词
-    all_words = all_words + words
-    print('len_all_words is :', len(all_words))
 
