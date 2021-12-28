@@ -3,9 +3,6 @@ import os
 import re
 import pdfplumber 
 import docx
-
-
-
 # 读取txt文件里的单词
 def txt():
     with open(filename) as f:
@@ -94,7 +91,6 @@ for filename in filenames:
     if '.txt' in filename:
         words = txt()
         print('len_words is :', len(words))
-        print(words)
 
     # 统计所有文件里的所有单词
     all_words = all_words + words
